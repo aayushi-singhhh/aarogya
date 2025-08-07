@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Navbar from "./sections/navbar";
+import Hero from "./sections/Hero";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <div className="container mx-auto max-w-7xl">
+      <Navbar />
+      <Hero />
+    </div>
+  );
+};
 
-export default App
+export default App;
