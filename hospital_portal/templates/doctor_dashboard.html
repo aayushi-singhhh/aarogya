@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Welcome, Dr. {{ dashboard_data.user_info.name }}</h2>
+            <p class="text-muted">{{ dashboard_data.user_info.specialization }} • {{ dashboard_data.user_info.experience }}</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{ dashboard_data.today_appointments }}</h5>
+                    <p class="card-text">Today's Appointments</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{ dashboard_data.pending_appointments }}</h5>
+                    <p class="card-text">Pending Appointments</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{ dashboard_data.completed_today }}</h5>
+                    <p class="card-text">Completed Today</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{ dashboard_data.total_patients }}</h5>
+                    <p class="card-text">Total Patients</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Today's Schedule</h5>
+                </div>
+                <div class="card-body">
+                    {% if appointments %}
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Patient</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for appointment in appointments %}
+                                    <tr>
+                                        <td>{{ appointment.date.strftime('%H:%M') }}</td>
+                                        <td>{{ appointment.patient_name or 'Patient ID: ' + appointment.patient_id }}</td>
+                                        <td>{{ appointment.appointment_type }}</td>
+                                        <td>
+                                            <span class="badge {% if appointment.status == 'completed' %}badge-success{% elif appointment.status == 'cancelled' %}badge-danger{% else %}badge-primary{% endif %}">
+                                                {{ appointment.status.title() }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            {% if appointment.status == 'scheduled' %}
+                                                <button class="btn btn-sm btn-success">Complete</button>
+                                                <button class="btn btn-sm btn-warning">Reschedule</button>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No appointments scheduled for today.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" onclick="location.href='/doctor/schedule'">Manage Schedule</button>
+                        <button class="btn btn-info" onclick="location.href='/doctor/patients'">View Patients</button>
+                        <button class="btn btn-success" onclick="location.href='/doctor/medical_records'">Medical Records</button>
+                        <button class="btn btn-warning" onclick="location.href='/doctor/profile'">Update Profile</button>
+                    </div>
+                </div>
+            </div>
+
+            {% if dashboard_data.next_appointment %}
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Next Appointment</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Time:</strong> {{ dashboard_data.next_appointment.date.strftime('%H:%M') }}</p>
+                    <p><strong>Patient:</strong> {{ dashboard_data.next_appointment.patient_name or 'Patient ID: ' + dashboard_data.next_appointment.patient_id }}</p>
+                    <p><strong>Type:</strong> {{ dashboard_data.next_appointment.appointment_type }}</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

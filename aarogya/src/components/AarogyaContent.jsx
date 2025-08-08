@@ -10,11 +10,11 @@ const AarogyaContent = () => {
           <nav className="navigation" style={{ width: "100%", position: "absolute", top: '2.5rem', left: 0, right: 0, zIndex: 2000, backgroundColor: "transparent", padding: "0.25rem 1rem 0.5rem 1rem", marginTop: 0 }}>
             <div className="navigation-items" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", maxWidth: "1200px", margin: "0 auto" }}>
               <div className="nav-links" style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-                <a href="/shop/products" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>Shop</a>
-                <a href="/discoveries/discoveries" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>Discoveries</a>
-                <a href="/blog/notebook" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>NOTEBOOK</a>
-                <a href="/about" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>About</a>
-                <a href="/contact" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>Contact</a>
+                <a href="/shop/products" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>Home</a>
+                <a href="/discoveries/discoveries" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>Features</a>
+                <a href="/blog/notebook" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>Blogs</a>
+                <a href="/about" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>About Us</a>
+                <a href="/contact" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>Find a doctor</a>
                 <div className="language-switcher" style={{ display: "flex", gap: "0.5rem" }}>
                   <a href="#Weglot-fr" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>FR</a>
                   <a href="#Weglot-en" className="navigation-item" style={{ color: "white", textDecoration: "none", fontWeight: "500" }}>EN</a>
@@ -58,8 +58,8 @@ const AarogyaContent = () => {
                 className="text-white font-bold text-[100px] leading-[70%] uppercase"
               />
             </div>
-            <p className="paragraph-light discoveries" style={{ textAlign: "left", width: "55%", maxWidth: "650px", marginLeft: "-4rem", marginRight: "auto", fontFamily: 'Cardinalfruitweb, Times New Roman, sans-serif', fontSize: "32px", lineHeight: "110%" }}>
-              Travel through the universe of Aarogya. <br />Unique pieces to adopt, limited editions, and scientific discoveries.
+            <p className="paragraph-light discoveries" style={{ textAlign: "left", width: "55%", maxWidth: "650px", marginLeft: "-4rem", marginRight: "auto", fontFamily: 'Cardinalfruitweb, Times New Roman, sans-serif', fontSize: "32px", lineHeight: "110%", color:'white' }}>
+             <br /> Travel through the universe of Aarogya. <br />Unique pieces to adopt, limited editions, and scientific discoveries.
             </p>
             
             {/* Hospital Portal Button */}

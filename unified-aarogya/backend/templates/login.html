@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-sign-in-alt me-2"></i>
+                    Login to Hospital Portal
+                </h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope me-2"></i>Email Address
+                        </label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="password" class="form-label">
+                            <i class="fas fa-lock me-2"></i>Password
+                        </label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Demo Credentials Card -->
+        <div class="card mt-4">
+            <div class="card-header text-center bg-info text-white">
+                <h6 class="mb-0">Demo Credentials</h6>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <strong>Patient</strong><br>
+                        <small>alice@email.com</small><br>
+                        <small>pat123</small>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Doctor</strong><br>
+                        <small>sarah@hospital.com</small><br>
+                        <small>doc123</small>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Admin</strong><br>
+                        <small>admin@hospital.com</small><br>
+                        <small>admin123</small>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="{{ url_for('initialize_demo') }}" class="btn btn-sm btn-outline-info">
+                        Initialize Demo Data
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
