@@ -1,0 +1,33 @@
+{
+  "name": "aarogya-unified",
+  "version": "1.0.0",
+  "description": "Unified Aarogya Health Platform - Frontend and Backend Integration",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run frontend:dev\" \"npm run backend:dev\"",
+    "frontend:dev": "cd frontend && npm run dev",
+    "backend:dev": "cd backend && /Users/aayushisingh/Documents/aarogya/.venv/bin/python app.py",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:preview": "cd frontend && npm run preview",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && pip install -r requirements.txt",
+    "start": "./start.sh",
+    "setup": "python -m venv .venv && source .venv/bin/activate && npm run install:all"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "local"
+  },
+  "keywords": [
+    "healthcare",
+    "hospital",
+    "management",
+    "react",
+    "flask",
+    "python"
+  ],
+  "author": "Aarogya Team",
+  "license": "MIT"
+}
