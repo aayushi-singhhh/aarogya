@@ -61,6 +61,45 @@ const AarogyaContent = () => {
             <p className="paragraph-light discoveries" style={{ textAlign: "left", width: "55%", maxWidth: "650px", marginLeft: "-4rem", marginRight: "auto", fontFamily: 'Cardinalfruitweb, Times New Roman, sans-serif', fontSize: "32px", lineHeight: "110%" }}>
               Travel through the universe of Aarogya. <br />Unique pieces to adopt, limited editions, and scientific discoveries.
             </p>
+            
+            {/* Hospital Portal Button */}
+            <div style={{ marginLeft: "-4rem", marginTop: "3rem", marginBottom: "2rem" }}>
+              <button 
+                onClick={() => window.open('http://localhost:5001', '_blank')}
+                style={{
+                  background: "linear-gradient(45deg, #667eea 0%, #764ba2 100%)",
+                  border: "none",
+                  borderRadius: "50px",
+                  padding: "15px 40px",
+                  color: "white",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  fontFamily: 'Dmsans, Arial, sans-serif',
+                  cursor: "pointer",
+                  boxShadow: "0 8px 25px rgba(102, 126, 234, 0.3)",
+                  transition: "all 0.3s ease",
+                  textTransform: "uppercase",
+                  letterSpacing: "1px",
+                  position: "relative",
+                  overflow: "hidden"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "translateY(-3px)";
+                  e.target.style.boxShadow = "0 12px 35px rgba(102, 126, 234, 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "translateY(0)";
+                  e.target.style.boxShadow = "0 8px 25px rgba(102, 126, 234, 0.3)";
+                }}
+              >
+                <span style={{ marginRight: "10px" }}>🏥</span>
+                Access Hospital Portal
+              </button>
+              
+              <div style={{ marginTop: "1rem", fontSize: "14px", color: "rgba(255,255,255,0.8)", fontFamily: 'Dmsans, Arial, sans-serif' }}>
+                Manage appointments • View medical records • Connect with doctors
+              </div>
+            </div>
           </div>
         </div>
       </div>
