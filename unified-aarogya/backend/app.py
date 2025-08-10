@@ -22,7 +22,14 @@ app = Flask(__name__)
 app.secret_key = 'aarogya_hospital_portal_secret_key_2025'
 
 # Enable CORS for frontend integration
-CORS(app, origins=['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'])
+CORS(app, origins=[
+    'http://localhost:5173', 
+    'http://localhost:5174', 
+    'http://localhost:3000',
+    'https://aarogya-jv3xifct7-aayushi-singhhs-projects.vercel.app',
+    'https://aarogya-aayushi-singhhs-projects.vercel.app',
+    'https://aarogya.vercel.app'
+], supports_credentials=True)
 
 # Initialize the portal system
 portal_system = HospitalPortalSystem()

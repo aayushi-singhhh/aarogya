@@ -27,7 +27,10 @@ const PortalIntegration = () => {
         await checkUserSession();
         setShowQuickLogin(false);
         // Open the portal dashboard
-        window.open('http://localhost:5001', '_blank');
+        const portalUrl = import.meta.env.PROD 
+          ? 'https://aarogya-1bcm9b9fl-aayushi-singhhs-projects.vercel.app' 
+          : 'http://localhost:5001';
+        window.open(portalUrl, '_blank');
       } else {
         alert('Login failed. Please check your credentials.');
       }
@@ -53,7 +56,12 @@ const PortalIntegration = () => {
     <div style={{ marginLeft: "-4rem", marginTop: "3rem", marginBottom: "2rem" }}>
       {/* Main Hospital Portal Button */}
       <button 
-        onClick={() => window.open('http://localhost:5001', '_blank')}
+        onClick={() => {
+          const portalUrl = import.meta.env.PROD 
+            ? 'https://aarogya-1bcm9b9fl-aayushi-singhhs-projects.vercel.app' 
+            : 'http://localhost:5001';
+          window.open(portalUrl, '_blank');
+        }}
         style={{
           background: "linear-gradient(45deg, #667eea 0%, #764ba2 100%)",
           border: "none",

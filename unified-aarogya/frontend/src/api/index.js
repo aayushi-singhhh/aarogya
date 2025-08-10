@@ -1,5 +1,7 @@
 // API configuration for backend integration
-const API_BASE_URL = 'http://localhost:5001';
+const API_BASE_URL = import.meta.env.PROD 
+  ? 'https://aarogya-1bcm9b9fl-aayushi-singhhs-projects.vercel.app' 
+  : 'http://localhost:5001';
 
 export const api = {
   // User authentication
