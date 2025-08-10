@@ -342,7 +342,7 @@
                     <p class="paragraph-small footer">Join our newsletter for the latest news and specimens</p>
                   </div>
                   <div class="form-block-2 w-form">
-                    <form id="wf-form-email" name="wf-form-email" data-name="email" action="https://monsieurcailloux.us22.list-manage.com/subscribe/post?u=b1f935f5201717962399ee4d2&id=4b736b70b8&f_id=003fdee1f0" method="post" class="form-2" data-wf-page-id="64c80e9ba49de1bd4890a64f" data-wf-element-id="47d851c9-e002-e7b6-d90b-b0471f05ae8b" data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e"><input class="text-field-2 w-input" maxlength="256" name="email" data-name="email" placeholder="Enter your email" type="email" id="email-2" required=""><input type="submit" data-wait="Please wait..." class="submit-button w-button" value="OK"></form>
+                    <form action="https://formspree.io/f/xldlapkr" method="post" ><input class="text-field-2 w-input" maxlength="256" name="email" data-name="email" placeholder="Enter your email" type="email" id="email-2" required=""><input type="submit" data-wait="Please wait..." class="submit-button w-button" value="OK"></form>
                     <div class="success-message-2 w-form-done">
                       <div class="text-block-9">Thank you! Check your mailbox to confirm your subscription!</div>
                     </div>
@@ -512,19 +512,40 @@
         });
 
       });
-    </script>
-
-    <script>
+      // Initialize the scroll to top button
       document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('#back-btn').addEventListener('click', function(event) {
-          // Vérifie si l'URL précédente contient le domaine spécifié
-          if (document.referrer.includes("monsieurcailloux.com/")) {
-            // Retourne à la page précédente
-            history.back();
+        const scrollTopButton = document.createElement('button');
+        scrollTopButton.innerText = '↑';
+        scrollTopButton.style.position = 'fixed';
+        scrollTopButton.style.bottom = '20px';
+        scrollTopButton.style.right = '20px';
+        scrollTopButton.style.opacity = '0';
+        scrollTopButton.style.visibility = 'hidden';
+        scrollTopButton.style.transition = 'opacity 0.3s';
+        document.body.appendChild(scrollTopButton);
+
+        function toggleButtonVisibility() {
+          if (window.pageYOffset > 300) {
+            scrollTopButton.style.opacity = '1';
+            scrollTopButton.style.visibility = 'visible';
           } else {
-            // Redirige vers "https://mrcx.webflow.io/" si l'URL précédente ne correspond pas
-            window.location.href = "https://www.monsieurcailloux.com/";
+            scrollTopButton.style.opacity = '0';
+            scrollTopButton.style.visibility = 'hidden';
           }
+        }
+
+        // Initial check on page load
+        toggleButtonVisibility();
+
+        // Check on scroll
+        window.addEventListener('scroll', toggleButtonVisibility);
+
+        // Scroll to top when button is clicked
+        scrollTopButton.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
         });
       });
     </script>
