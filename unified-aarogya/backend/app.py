@@ -1,3 +1,30 @@
+from flask import Flask
+from flask_cors import CORS
+from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
+
+# Load env variables
+load_dotenv()
+
+app = Flask(__name__)
+CORS(app)
+
+# MongoDB connection
+mongo_uri = os.getenv("MONGO_URI")
+db_name = os.getenv("DB_NAME")
+client = MongoClient(mongo_uri)
+db = client[db_name]
+
+print("✅ Connected to MongoDB")
+
+
+@app.route("/testdb")
+def testdb():
+    test_data = {"name": "Test Patient", "age": 30}
+    db.patients.insert_one(test_data)
+    return {"message": "Data inserted into MongoDB!"}
+
 #!/usr/bin/env python3
 """
 Flask Web Application for Hospital Portal System
@@ -203,6 +230,11 @@ def api_user_info():
         'role': session.get('user_role'),
         'name': session.get('user_name')
     })
+
+@app.route('/test-db')
+def test_db():
+    return {"status": "ok"}
+
 
 if __name__ == '__main__':
     print("🏥 Starting Aarogya Hospital Portal Backend...")
